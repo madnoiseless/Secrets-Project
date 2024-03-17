@@ -1,26 +1,42 @@
-# Secrets-Project
-To use this code, first, install the required packages by running 'npm install' in your terminal. Then, start the application using 'nodemon index.js'.
+# Secrets Sharing Application
 
-This code sets up a simple web application using the Express framework in Node.js. It includes a basic authentication mechanism for accessing a secret page. Here's a breakdown of the code:
+This project is a simple web application that allows users to access a collection of secrets by providing a password. The application uses Express.js for the server-side logic and serves HTML pages for the user interface.
 
-1. Import necessary modules: The code imports the required modules, such as Express and bodyParser, which helps parse incoming request bodies.
+## Prerequisites
 
-2. Set up the Express application: The code initializes the Express application and assigns a port number (3000) for the server to listen on.
+Before starting, make sure you have the following software installed:
 
-3. Define a user authorization flag: A global flag named `userIsAuthorised` is set to `false` initially. This flag will be used to determine if the user has successfully authenticated.
+1. Node.js: Download and install it from [https://nodejs.org/](https://nodejs.org/)
 
-4. Configure middleware: The code uses `bodyParser.urlencoded` as middleware to parse URL-encoded data from incoming requests.
+## Installation
 
-5. Define a password check function: This function, `passwordCheck`, checks if the password provided in the request body matches the string "ILoveProgramming". If it does, the `userIsAuthorised` flag is set to `true`.
+1. Clone the repository or download the project files.
+2. Open your terminal or command prompt and navigate to the project directory.
+3. Run `npm install` to install the required dependencies.
 
-6. Apply password check middleware: The password check function is applied as middleware using `app.use`, so it will be executed for each incoming request.
+## Usage
 
-7. Set up routes: The application has two routes:
+1. Run the application using the command `node index.js`.
+2. The server will start and listen on port `3000`.
+3. Open your browser and navigate to `http://localhost:3000`.
+4. You will be presented with a password input form.
+5. Enter the password `ILoveProgramming` to access the secrets page.
+6. If the password is incorrect, you will be redirected back to the login page.
+7. Upon successful authentication, you will be able to view the secrets stored in `secret.html`.
 
-   a. GET request to the root path ("/"): This route sends the "index.html" file from the "public" folder.
-   
-   b. POST request to the "/check" path: This route checks the `userIsAuthorised` flag. If it's `true`, it sends the "secret.html" file. If it's `false`, it sends the "index.html" file (or you can also use `res.redirect("/")` to redirect the user to the root path).
+## Dependencies
 
-8. Start the server: The server listens on the specified port (3000) and logs a message when it starts.
+This project uses the following NPM packages:
 
-In summary, this code sets up a basic Express application with a simple password-based authentication system to access a secret page.
+1. [Express](https://www.npmjs.com/package/express): A fast, minimalist web framework for Node.js.
+2. [Body-parser](https://www.npmjs.com/package/body-parser): Middleware to parse incoming request bodies in a middleware before your handlers.
+
+## File Structure
+
+- `index.js`: The main server file that sets up the Express application and handles routes.
+- `public/index.html`: The login page where users enter the password.
+- `public/secret.html`: The page containing the secrets that will be displayed upon successful authentication.
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to create a pull request or submit an issue.
